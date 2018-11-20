@@ -1,0 +1,48 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'application'
+
+group = 'com.buptnsrc'
+version = '0.4'
+
+description = ""
+
+sourceCompatibility = 1.5
+targetCompatibility = 1.5
+
+mainClassName = 'net.freehaven.tor.control.serverAndClientExample.MainLaunch'
+
+repositories {
+//     maven { url "http://repo.maven.apache.org/maven2" }
+     jcenter()
+     mavenCentral()
+}
+
+dependencies{
+     implementation group: 'org.jetbrains', name: 'annotations', version: '16.0.3'
+//     implementation files('libs/jsocks.jar')
+}
+
+jar {
+     manifest {
+          attributes(
+                  "Implementation-Title": "jtorctl",
+                  "Implementation-Version": "0.4",
+                  "Main-class": "$mainClassName"
+          )
+     }
+     from {
+          configurations.compileClasspath.collect {
+//               System.out.println(it.getAbsolutePath())
+               it.isDirectory() ? it : zipTree(it)
+          }
+     }
+}
+
+//task conf {
+//     doLast {
+//          for (Configuration configuration : getConfigurations()) {
+//               System.out.println(configuration)
+//          }
+//     }
+//}

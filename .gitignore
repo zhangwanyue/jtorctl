@@ -5,12 +5,10 @@
 
 .gradle/
 .idea/
-build.gradle
 build/
 gradle/
 gradlew
 gradlew.bat
 local.properties
-settings.gradle
 src/main/resources/
 src/test/
