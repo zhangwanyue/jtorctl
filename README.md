@@ -1,23 +1,23 @@
-### intro
+## Intro
 
 A Java library for controlling a Tor instance via its control port.  It is
 used in the Android app Orbot as well as others.
 
 This fork includes patches for managing onion services.
 
-### fork and modify
+## Fork And Modify
 
 This is fork from: https://github.com/akwizgran/jtorctl
 
 We add `TorControlConnection.addOnionV3()` to support hidden service v3, and `serverAndClientExample package` as a hidden service example.
 
-### how to compile fat jar
+## How To Compile Fat Jar
 
 Run`./gradlew jar`
 
-### how to use
+## How To Use Jar
 
-#### simply using jar in command line
+#### Simply using jar in command line
 
 1. Make sure your Tor process is running on your computer **as a client**: you can use `sudo systemctl status tor` to check whether it is runnning and check the log: `/var/log/tor/notice.log` to see whether it got `Bootstrapped 100%`;
 
