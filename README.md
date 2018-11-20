@@ -13,4 +13,35 @@ We add `TorControlConnection.addOnionV3()` to support hidden service v3, and `se
 
 ### how to compile fat jar
 
-run`./gradlew jar`
+Run`./gradlew jar`
+
+### how to use
+
+#### simply using jar in command line
+
+1. Make sure your Tor process is running on your computer **as a client**: you can use `sudo systemctl status tor` to check whether it is runnning and check the log: `/var/log/tor/notice.log` to see whether it got `Bootstrapped 100%`;
+
+2. Make sure you have opened the `ControlPort` at 9051 and `SocksPort` at 9050 in `torrc` file, and enabled the `CookieAuthentication`:
+
+```
+SocksPort 9050
+ControlPort 9051
+CookieAuthentication 1
+```
+
+3. Use `sudo chmod 777 /var/run/tor/control.authcookie` to change the permission of cookie file;
+
+4. Simply run `java -jar jtorctl-0.4.jar`.
+
+#### Using the jar as a dependency
+
+1. Make a file named `libs` in your project and copy this jar into `libs`
+
+2. Add this in `build.gradle`
+
+```groovy
+dependencies {
+    ...
+    implementation files('libs/jtorctl-0.4.jar')
+}
+```
