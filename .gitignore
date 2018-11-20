@@ -4,12 +4,7 @@
 .project
 
 .gradle/
-.idea/jtorctl.iml
-.idea/libraries/jsocks.xml
-.idea/misc.xml
-.idea/modules.xml
-.idea/vcs.xml
-.idea/workspace.xml
+.idea/
 build.gradle
 build/
 gradle/
