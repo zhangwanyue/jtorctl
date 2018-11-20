@@ -1,4 +1,4 @@
-package net.freehaven.tor.control.serverAndClientExample.Utils;
+package net.freehaven.tor.control.serverAndClientExample.utils;
 
 public class ByteUtils {
 

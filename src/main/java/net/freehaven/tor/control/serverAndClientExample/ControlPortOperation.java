@@ -3,7 +3,7 @@ package net.freehaven.tor.control.serverAndClientExample;
 import net.freehaven.tor.control.ConfigEntry;
 import net.freehaven.tor.control.EventHandler;
 import net.freehaven.tor.control.TorControlConnection;
-import net.freehaven.tor.control.serverAndClientExample.Utils.IoUtils;
+import net.freehaven.tor.control.serverAndClientExample.utils.IoUtils;
 
 import java.io.File;
 import java.io.IOException;

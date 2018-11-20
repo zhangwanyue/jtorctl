@@ -1,7 +1,7 @@
 package net.freehaven.tor.control.serverAndClientExample.socks;
 
-import net.freehaven.tor.control.serverAndClientExample.Utils.ByteUtils;
-import net.freehaven.tor.control.serverAndClientExample.Utils.IoUtils;
+import net.freehaven.tor.control.serverAndClientExample.utils.ByteUtils;
+import net.freehaven.tor.control.serverAndClientExample.utils.IoUtils;
 
 import java.io.IOException;
 import java.io.InputStream;

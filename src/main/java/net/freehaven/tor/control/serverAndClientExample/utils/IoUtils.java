@@ -1,7 +1,6 @@
-package net.freehaven.tor.control.serverAndClientExample.Utils;
+package net.freehaven.tor.control.serverAndClientExample.utils;
 
-import com.sun.istack.internal.Nullable;
-import org.apache.commons.io.IOUtils;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.*;
 import java.net.Socket;
@@ -22,15 +21,6 @@ public class IoUtils {
         return b;
     }
 
-    public static String convert(InputStream inputStream){
-        String result = "";
-        try {
-            result = IOUtils.toString(inputStream, "UTF-8");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
 
     public static void read(InputStream in, byte[] b) throws IOException {
         int offset = 0;
