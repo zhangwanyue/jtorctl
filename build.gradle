@@ -1,6 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'maven'
 apply plugin: 'application'
+apply plugin: 'maven-publish'
 
 group = 'com.buptnsrc'
 version = '0.4'
@@ -26,7 +27,6 @@ dependencies{
      implementation group: 'org.jetbrains', name: 'annotations', version: '16.0.3'
 //     implementation files('libs/jsocks.jar')
 //     myFatJar files('libs/jsocks.jar')
-//     myFatJar group: 'org.jetbrains', name: 'annotations', version: '16.0.3'
 }
 
 jar {
@@ -45,10 +45,15 @@ jar {
 }
 
 //发布到指定位置
-uploadArchives{
+publishing{
+     publications{
+          myLibrary(MavenPublication){
+               from components.java
+          }
+     }
      repositories{
-         mavenDeployer{
-              repository(url: "file:///home/vera/IdeaProjects/briarProjects/jtorctl/tmp") //发布到本地
+         maven{
+              url = "file://home/vera/IdeaProjects/briarProjects/jtorctl/tmp" //发布到本地
          }
      }
 }

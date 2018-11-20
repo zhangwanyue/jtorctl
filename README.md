@@ -52,13 +52,15 @@ dependencies {
 
 ### How To Publish
 
-1. modify xxx below to some place
+1. modify xxx below to a url
 
 ```groovy
-uploadArchives{
+publishing{
+     ...
      repositories{
-         mavenDeployer{
-              repository(url: "xxx") 
+         maven{
+              name = 'jtorctl'
+              url = "xxx" //发布到本地
          }
      }
 }
@@ -66,7 +68,7 @@ uploadArchives{
 
 2. publish
 
-Run `./gradlew uploadArchives`
+Run `./gradlew publish`
 
 ### How To Use Published Archive As A Dependency
 
