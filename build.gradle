@@ -18,9 +18,15 @@ repositories {
      mavenCentral()
 }
 
+configurations{
+     myFatJar
+}
+
 dependencies{
      implementation group: 'org.jetbrains', name: 'annotations', version: '16.0.3'
 //     implementation files('libs/jsocks.jar')
+//     myFatJar files('libs/jsocks.jar')
+//     myFatJar group: 'org.jetbrains', name: 'annotations', version: '16.0.3'
 }
 
 jar {
@@ -32,17 +38,17 @@ jar {
           )
      }
      from {
-          configurations.compileClasspath.collect {
-//               System.out.println(it.getAbsolutePath())
+          configurations.myFatJar.collect {
                it.isDirectory() ? it : zipTree(it)
           }
      }
 }
 
-//task conf {
-//     doLast {
-//          for (Configuration configuration : getConfigurations()) {
-//               System.out.println(configuration)
-//          }
-//     }
-//}
+//发布到指定位置
+uploadArchives{
+     repositories{
+         mavenDeployer{
+              repository(url: "file:///home/vera/IdeaProjects/briarProjects/jtorctl/tmp") //发布到本地
+         }
+     }
+}

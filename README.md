@@ -11,11 +11,13 @@ This is fork from: https://github.com/akwizgran/jtorctl
 
 We add `TorControlConnection.addOnionV3()` to support hidden service v3, and `serverAndClientExample package` as a hidden service example.
 
-## How To Compile Fat Jar
+## Fat Jar
+
+### How To Compile Fat Jar
 
 Run`./gradlew jar`
 
-## How To Use Jar
+### How To Use Fat Jar
 
 #### Simply using jar in command line
 
@@ -35,7 +37,7 @@ CookieAuthentication 1
 
 #### Using the jar as a dependency
 
-1. Make a file named `libs` in your project and copy this jar into `libs`
+1. Make a directory named `libs` in your project and copy this jar into `libs`
 
 2. Add this in `build.gradle`
 
@@ -45,3 +47,42 @@ dependencies {
     implementation files('libs/jtorctl-0.4.jar')
 }
 ```
+
+## Publish
+
+### How To Publish
+
+1. modify xxx below to some place
+
+```groovy
+uploadArchives{
+     repositories{
+         mavenDeployer{
+              repository(url: "xxx") 
+         }
+     }
+}
+```
+
+2. publish
+
+Run `./gradlew uploadArchives`
+
+### How To Use Published Archive As A Dependency
+
+```groovy
+repositories {
+    ...
+    maven{
+        url uri('xxx')
+    }
+}
+
+dependencies {
+    ...
+    implementation group: 'com.buptnsrc', 'name': 'jtorctl', 'version':'0.4'
+}
+```
+
+
+

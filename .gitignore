@@ -12,3 +12,5 @@ gradlew.bat
 local.properties
 src/main/resources/
 src/test/
+
+/tmp
