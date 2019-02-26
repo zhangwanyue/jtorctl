@@ -17,9 +17,9 @@ We add `TorControlConnection.addOnionV3()` to support hidden service v3, and `se
 
 Run`./gradlew jar`
 
-### How To Use Fat Jar
+### How To Use Fat Jar (Fat Jar Contains a Hidden Service Test Case)
 
-#### Simply using jar in command line
+#### Simply testing fat jar's test case in command line
 
 1. Make sure your Tor process is running on your computer **as a client**: you can use `sudo systemctl status tor` to check whether it is runnning and check the log: `/var/log/tor/notice.log` to see whether it got `Bootstrapped 100%`;
 
@@ -35,7 +35,34 @@ CookieAuthentication 1
 
 4. Simply run `java -jar jtorctl-0.4.jar`.
 
-#### Using the jar as a dependency
+```
+$ java -jar jtorctl-0.4.jar 
+
+>> ADD_ONION NEW:ED25519-V3 Port=80,127.0.0.1:8080
+<< 250-ServiceID=v4qdqxeyi734lo7p25grvpl6gydzlflz2h5ue4tkdvpld5md7kc2h5qd
+<< 250-PrivateKey=ED25519-V3:wJNUN7zA5xtdWv86+aSh1RuwWfWqz9UQXhMgnsX+TXzbTgDEG15Xyc4C0cDiiD1DCnOgruNYvGP90QzCL/Z6Iw==
+<< 250 OK
+hiddenServiceAddress: v4qdqxeyi734lo7p25grvpl6gydzlflz2h5ue4tkdvpld5md7kc2h5qd.onion
+hiddenServicePrivateKey: ED25519-V3:wJNUN7zA5xtdWv86+aSh1RuwWfWqz9UQXhMgnsX+TXzbTgDEG15Xyc4C0cDiiD1DCnOgruNYvGP90QzCL/Z6Iw==
+>> SETEVENTS EXTENDED HS_DESC
+<< 250 OK
+<< 650 HS_DESC UPLOAD v4qdqxeyi734lo7p25grvpl6gydzlflz2h5ue4tkdvpld5md7kc2h5qd UNKNOWN $793ED35AA169BB4269CD49A31ABE35E05A960C96~sqrrm xJI681BxyV//ELVQbHuPeWwPv3kK4o1N9Xv9RJiivGw HSDIR_INDEX=09316F2336E747310183861C7C4E511FFE2856F6B20289CD4EEFA096936A6E3C
+...
+
+Descriptor uploaded
+...
+
+[CLIENT] try to connect to server
+...
+
+[SERVER] receive connect from client
+[SERVER] send a message to client: Hello client
+[CLIENT] receive reply from server: Hello client
+
+```
+
+
+#### Using fat jar as a dependency
 
 1. Make a directory named `libs` in your project and copy this jar into `libs`
 

@@ -24,7 +24,7 @@ configurations{
 }
 
 dependencies{
-     implementation group: 'org.jetbrains', name: 'annotations', version: '16.0.3'
+     compileOnly group: 'org.jetbrains', name: 'annotations', version: '16.0.3' // compile time only dependencies, not used at runtime
 //     implementation files('libs/jsocks.jar')
 //     myFatJar files('libs/jsocks.jar')
 }

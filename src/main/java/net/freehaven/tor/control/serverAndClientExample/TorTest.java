@@ -27,7 +27,7 @@ public class TorTest implements EventHandler {
     private static int SOCKS_PORT = 9050;
 
     // hidden service's virtual tcp port(remote client call this port to connect to server's hidden service)
-    private static int HIDDENSERVICE_VIRTUAL_PORT = 80;
+    private static int HIDDENSERVICE_VIRTUAL_PORT = 8080;
 
     // the target port for the given virtual port(server's hidden service open this port to listen for client's connect)
     private static int HIDDENSERVICE_TARGET_PORT = 8080;
